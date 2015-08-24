@@ -9,6 +9,10 @@ var simplifiedPhotographs = photographs.map(function(photograph) {
 
 // TODO: Create an array called `photographElements` that takes `simplifiedPhotographs` and transforms each one into a DOM element.
 
-var photographElements = photographs.map(function(photograph) {
-  return createImageElementFromPhotograph(photograph)
+var photographElements = simplifiedPhotographs.map(function(photo) {
+  var e = document.createElement("img");
+  e.alt = photo.caption;
+  e.src = photo.url;
+  e.className = "instagram-image";
+  return e
 });
