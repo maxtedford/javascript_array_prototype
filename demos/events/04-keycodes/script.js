@@ -6,10 +6,20 @@ var block = {
   height: 20,
   x: 190,
   y: 140,
-}
+};
+
+var keyCodeFunctionMapper = {
+  37: function() { block.x -= 5},
+  38: function() { block.y -= 5},
+  39: function() { block.x += 5},
+  40: function() { block.y += 5}
+};
 
 document.addEventListener('keydown', function (event) {
-  // Your code here…
+  var keyCode = event.keyCode;
+  if (keyCodeFunctionMapper[keyCode]) {
+    keyCodeFunctionMapper[keyCode]();
+  }
 });
 
 requestAnimationFrame(function gameLoop() {
